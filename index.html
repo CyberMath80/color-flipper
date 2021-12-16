@@ -18,16 +18,18 @@
                             <button class="navbar-toggler float-start me-3 mt-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <h1 class="text-white h1">Color Flipper <span class="h4">by Cyber Math</span><span class="h6 float-end red">This is only a test (EXERCISE)</span></h1>
+                            <h1 class="text-white h1">Color Flipper <span class="h4">by Cyber Math</span></h1>
                         </div>
                     </div>
                 </nav>
                 <div class="collapse" id="navbarToggleExternalContent">
-                    <div class="bg-dark p-4">
-                        <button class="btn btn-secondary btn-lg mx-4" id="name-btn">Color Names</button>
-                        <button class="btn btn-secondary btn-lg mx-4" id="hexa-btn">Hex</button>
-                        <button class="btn btn-secondary btn-lg mx-4" id="rgb-btn">RGB</button>
-                        <a class="btn btn-success btn-lg mx-4" href="https://cybermath.dev">Back to Cyber Math</a>
+                    <div class="bg-dark row justify-content-start px-2 pt-2 gap-1">
+                        <button class="btn btn-secondary btn-lg mb-3 mx-auto col-3" id="name-btn">Color Names</button>
+                        <button class="btn btn-secondary btn-lg mb-3 mx-auto col-3" id="hexa-btn">Hex</button>
+                        <button class="btn btn-secondary btn-lg mb-3 mx-auto col-3" id="rgb-btn">RGB</button>
+                        <div class="d-none d-md-block"></div>
+                            <a class="btn btn-success btn-lg mb-3 mx-auto col-xs-9 col-sm-9 col-md-6 col-lg-3" href="https://cybermath.dev">Back to Cyber Math</a>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -39,14 +41,14 @@
                         <span class="h6">Hex : <span id="bg-color-hex"></span></span><br>
                         <span class="h6">RGB : <span id="bg-color-rgb"></span></span>
                     </h2>
-                    <button class="btn btn-lg btn-primary mx-auto" id="random-btn">Random Color</button>
+                    <button class="btn btn-lg btn-primary mx-auto mt-5 py-3" id="random-btn">Random Color</button>
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
                             <span class="input-group-text p-3" id="inputGroup-sizing-lg">Search</span>
                         </div>
                         <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-lg" id="input-color">
                     </div>
-                    <p id="footer">Exercice inspiré du cours de <a href="https://www.youtube.com/codingaddict" target="_blank">John Smilga</a> sur Youtube.<br>Cyber Math &copy; 2021</p>
+                    <p id="footer">Color Flipper by Cyber Math &copy; 2021 <span class="h6 red">This is only a test (EXERCISE)</span></p>
                 </div>
             </section>
         </main>
