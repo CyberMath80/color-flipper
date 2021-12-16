@@ -40,7 +40,7 @@ hexaBtn.addEventListener('click', () => {
     description.textContent = 'Les 141 couleurs nommables ne représentent que 0,000840425% des 16.777.216 couleurs codables en hexadécimal sur 6 caractères...';
 });
 
-rgbBtn.addEventListener('click', function () {
+rgbBtn.addEventListener('click', function () { /* oldschool style */
     colorType = 'RGB';
     inputColor.placeholder = 'Enter your Color (R, G, B) code here';
     description.textContent = colorType + '? Je ne vais pas vous écrire une tartine à ce sujet, vous pouvez consulter la doc en ligne.';
