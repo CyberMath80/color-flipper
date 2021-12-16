@@ -1,6 +1,17 @@
+@media screen and (max-width: 345px) {
+    .collapse button, .collapse a {
+        font-size: 12px !important;
+    }
+
+    input {
+        max-width: 250px;
+        font-size: 12px !important;
+    }
+}
+
 * {
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 
 html {
@@ -9,16 +20,22 @@ html {
 
 main {
     position: relative;
-}
-
-header {
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
 }
 
+header {
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 section {
+    width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -47,10 +64,26 @@ h2 {
 
 .h4 {
     color: SteelBlue;
+    display: inline-block;
 }
 
 .red {
     color: #AA0000;
+    display: inline-block;
+}
+
+.show {
+    border-bottom: 1px solid #6C757D;
+}
+
+.collapse {
+    width: 100%;
+    overflow: hidden;
+}
+
+.collapse button, .collapse a {
+    overflow: hidden;
+    word-wrap: break-word;
 }
 
 input {
@@ -64,7 +97,6 @@ div.input-group {
 }
 
 #description {
-    margin-bottom: 15px;
     text-align: left;
     border-radius: 5px;
 }
