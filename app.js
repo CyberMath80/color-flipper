@@ -1,14 +1,16 @@
 const nameBtn     = document.getElementById('name-btn');
 const hexaBtn     = document.getElementById('hexa-btn');
 const rgbBtn      = document.getElementById('rgb-btn');
+const backBtn     = document.querySelector('.collapse a');
 
 const bgColorName = document.getElementById('bg-color-name');
 const bgColorHex  = document.getElementById('bg-color-hex');
 const bgColorRGB  = document.getElementById('bg-color-rgb');
 const randomBtn   = document.getElementById('random-btn');
 const inputColor  = document.getElementById('input-color');
-
+const year        = document.getElementById('year');
 const description = document.getElementById('description');
+const footer      = document.getElementById('footer');
 const hexChar     = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
 const digit256    = [];
 
@@ -25,25 +27,32 @@ bgColorName.style.color = 'SteelBlue';
 bgColorHex.style.color  = 'SteelBlue';
 bgColorRGB.style.color  = 'SteelBlue';
 inputColor.placeholder  = `Enter your Color ${colorType} here`;
-description.textContent = 'Il existe 148 noms de couleurs interprétables par les browsers, mais si l\'on retire les doublons des nuances de gris, il n\'en reste que 141.';
+description.textContent = 'There are 148 names of colors that can be interpreted by browsers, but if we remove the duplicate shades of gray, only 141 remain.';
 /*-----------------------------------------------------------*/
+window.addEventListener('load', () => {
+    resizeBtn();
+});
+
+window.addEventListener('resize', () => {
+    resizeBtn();
+});
 
 nameBtn.addEventListener('click', () => {
     colorType = 'Name';
     inputColor.placeholder  = `Enter your Color ${colorType} here`;
-    description.textContent = 'Il existe 148 noms de couleurs interprétables par les browsers, mais si l\'on retire les doublons des nuances de gris, il n\'en reste que 141.';
+    description.textContent = 'There are 148 names of colors that can be interpreted by browsers, but if we remove the duplicate shades of gray, only 141 remain.';
 });
 
 hexaBtn.addEventListener('click', () => {
     colorType = 'Hex';
     inputColor.placeholder  = `Enter your Color ${colorType} code here`;
-    description.textContent = 'Les 141 couleurs nommables ne représentent que 0,000840425% des 16.777.216 couleurs codables en hexadécimal sur 6 caractères...';
+    description.textContent = 'The 141 nameable colors represent only 0.000840425% of the 16.777.216 colors codable in hexadecimal on 6 characters...';
 });
 
 rgbBtn.addEventListener('click', function () { /* oldschool style */
     colorType = 'RGB';
     inputColor.placeholder = 'Enter your Color (R, G, B) code here';
-    description.textContent = colorType + '? Je ne vais pas vous écrire une tartine à ce sujet, vous pouvez consulter la doc en ligne.';
+    description.textContent = colorType + '? Please, watch the online doc on this subject.';
 });
 
 /*--------------- JSON ZONE -------------------*/
@@ -85,6 +94,8 @@ request.onload = function() {
      * }
      * console.log(doublons);
      * ------*/
+
+    year.textContent = getCurrentYear();
 }
 /*---------------------------------------------*/
 
@@ -307,4 +318,34 @@ function RGBToHex() { /* version du genou : arg1 = red, arg2 = green, arg3 = blu
     //hex += arg4[arg3 - (parseInt(arg3 / 16) * 16)];
     // console.log(hex);
     return hex;
+}
+
+function getCurrentYear() {
+    let currentYear = new Date();
+    
+    return currentYear.getFullYear();
+}
+
+function resizeBtn() {
+    const clientWidth = window.innerWidth;
+
+    if(clientWidth <= 450) {
+        nameBtn.classList = 'btn btn-secondary btn-sm mb-2 mx-auto col-3';
+        hexaBtn.classList = 'btn btn-secondary btn-sm mb-2 mx-auto col-3';
+        rgbBtn.classList  = 'btn btn-secondary btn-sm mb-2 mx-auto col-3';
+        backBtn.classList = 'btn btn-success btn-sm mb-2 mx-auto col-9 col-sm-9 col-md-6 col-lg-3';
+        inputColor.style.fontSize = '12px';
+        inputColor.style.maxWidth = '250px';
+        footer.style.maxHeight    = '5Opx';
+        footer.style.padding      = '2px';
+    } else {
+        nameBtn.classList = 'btn btn-secondary btn-lg mb-3 mx-auto col-3';
+        hexaBtn.classList = 'btn btn-secondary btn-lg mb-3 mx-auto col-3';
+        rgbBtn.classList  = 'btn btn-secondary btn-lg mb-3 mx-auto col-3';
+        backBtn.classList = 'btn btn-success btn-lg mb-3 mx-auto col-9 col-sm-9 col-md-6 col-lg-3';
+        inputColor.style.fontSize = '16px';
+        inputColor.style.maxWidth = '360px';
+        footer.style.maxHeight    = 'auto';
+        footer.style.padding      = 'auto';
+    }
 }
